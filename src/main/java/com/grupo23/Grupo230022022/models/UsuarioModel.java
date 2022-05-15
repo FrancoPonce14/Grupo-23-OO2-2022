@@ -2,7 +2,7 @@ package com.grupo23.Grupo230022022.models;
 
 import java.util.Objects;
 
-
+import com.grupo23.Grupo230022022.entities.Perfil;
 
 public class UsuarioModel {
 	
@@ -14,12 +14,14 @@ public class UsuarioModel {
 	private String email;
 	private String nombreUsuario;
 	private String clave;
+	private Perfil perfil;
+	private int idPerfil;
 
 	
 	public UsuarioModel() {}
 
 	public UsuarioModel(int idUsuario, String nombre, String apellido, String tipoDoc, long documento, String email,
-			String nombreUsuario, String clave) {
+			String nombreUsuario, String clave, Perfil perfil) {
 		super();
 		this.idUsuario = idUsuario;
 		this.nombre = nombre;
@@ -29,6 +31,7 @@ public class UsuarioModel {
 		this.email = email;
 		this.nombreUsuario = nombreUsuario;
 		this.clave = clave;
+		this.perfil = perfil;
 	}
 
 	public int getIdUsuario() {
@@ -95,6 +98,22 @@ public class UsuarioModel {
 		this.clave = clave;
 	}
 
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
+
+	public int getIdPerfil() {
+		return idPerfil;
+	}
+
+	public void setIdPerfil(int idPerfil) {
+		this.idPerfil = idPerfil;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(documento, idUsuario);
