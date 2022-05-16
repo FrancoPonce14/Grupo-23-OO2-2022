@@ -10,4 +10,7 @@ public class ViewRouteHelper {
 	public final static String INDEX_AUDITOR = "/indexAuditor";
 	public final static String PERFIL_ADMIN = "/admin/index";
 	public final static String INDEX_ADMIN = "/indexAdmin";
+	
+	// AUDITOR VER USUARIOS
+	public final static String AUDITOR_USUARIOS = "perfiles/perfil_auditor/usuario/usuarios";
 }

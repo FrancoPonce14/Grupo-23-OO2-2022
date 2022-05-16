@@ -1,5 +1,7 @@
 package com.grupo23.Grupo230022022.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,13 +9,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.grupo23.Grupo230022022.helpers.ViewRouteHelper;
+import com.grupo23.Grupo230022022.models.UsuarioModel;
+import com.grupo23.Grupo230022022.services.IUsuarioService;
 
 
 
 @Controller
 @RequestMapping("/auditor")
 public class AuditorController {
+	
+	@Autowired
+	@Qualifier("usuarioService")
+	private IUsuarioService usuarioService;
 	
 	@GetMapping("/index")
 	public ModelAndView indexAuditor(@RequestParam(name="nombreUsuario",required=false) String nombreUsuario) {
@@ -22,6 +31,16 @@ public class AuditorController {
 		nombreUsuario = auth.getName();
 		mVA.addObject("nombreUsuario", nombreUsuario);
 		return mVA;
+	}
+	
+	//Si no entendi mal, la vista de los profesores solo tiene que ser de visualización entonces podriamos usar esta 
+	//y que el administrado haga los cosas necesarias 
+	@GetMapping("/usuarios")
+	public ModelAndView verUsuarios_Auditor() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_USUARIOS);
+		mAV.addObject("lstUsuarios", usuarioService.findAll());
+		mAV.addObject("usuario", new UsuarioModel());
+		return mAV;
 	}
 
 }
