@@ -6,4 +6,8 @@ public class ViewRouteHelper {
 	public final static String LOGIN = "/login";
 	public final static String LOGOUT = "/logout";
 	public final static String INDEX = "/index";
+	public final static String PERFIL_AUDITOR = "/auditor/index";
+	public final static String INDEX_AUDITOR = "/indexAuditor";
+	public final static String PERFIL_ADMIN = "/admin/index";
+	public final static String INDEX_ADMIN = "/indexAdmin";
 }
