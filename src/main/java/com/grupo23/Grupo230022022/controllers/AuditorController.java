@@ -11,7 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.grupo23.Grupo230022022.helpers.ViewRouteHelper;
+import com.grupo23.Grupo230022022.models.PerfilModel;
 import com.grupo23.Grupo230022022.models.UsuarioModel;
+import com.grupo23.Grupo230022022.services.IPerfilService;
 import com.grupo23.Grupo230022022.services.IUsuarioService;
 
 
@@ -23,6 +25,10 @@ public class AuditorController {
 	@Autowired
 	@Qualifier("usuarioService")
 	private IUsuarioService usuarioService;
+	
+	@Autowired
+	@Qualifier("perfilService")
+	private IPerfilService perfilService;
 	
 	@GetMapping("/index")
 	public ModelAndView indexAuditor(@RequestParam(name="nombreUsuario",required=false) String nombreUsuario) {
@@ -42,5 +48,13 @@ public class AuditorController {
 		mAV.addObject("usuario", new UsuarioModel());
 		return mAV;
 	}
+	@GetMapping("/perfiles")
+	public ModelAndView verPerfiles_Auditor() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_PERFILES);
+		mAV.addObject("lstPerfiles", perfilService.getAll());
+		mAV.addObject("perfil", new PerfilModel());
+		return mAV;
+	}
+
 
 }

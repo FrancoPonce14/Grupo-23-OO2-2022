@@ -13,4 +13,5 @@ public class ViewRouteHelper {
 	
 	// AUDITOR VER USUARIOS
 	public final static String AUDITOR_USUARIOS = "perfiles/perfil_auditor/usuario/usuarios";
+	public final static String AUDITOR_PERFILES = "perfiles/perfil_auditor/perfil/roles";
 }
