@@ -18,4 +18,9 @@ public class ViewRouteHelper {
 	// ADMIN VER USUARIOS Y PERFILES
 	public final static String VER_USUARIOS = "/perfiles/perfil_admin/usuario/usuarios";
 	public final static String VER_PERFILES = "/perfiles/perfil_admin/perfil/roles";	
+	
+	//ABM USUARIOS -A DMIN
+	public final static String AGREGAR_USUARIO = "/perfiles/perfil_admin/usuario/nuevoUsuario";
+	public final static String EDITAR_USUARIO = "/perfiles/perfil_admin/usuario/editarUsuario";
+	public final static String ADMIN_USUARIOS = "/admin/usuarios";
 }

@@ -24,8 +24,8 @@ public class Usuario {
 	@Column(name="apellido", nullable=false)
 	private String apellido;
 	
-	@Column(name="tipoDocumento", nullable=false, length=5)
-	private String tipoDocumento;
+	@Column(name="tipoDoc", nullable=false, length=5)
+	private String tipoDoc;
 	
 	@Column(name="documento", unique=true, nullable=false, length=45)
 	private long documento;
@@ -49,13 +49,13 @@ public class Usuario {
 	
 	public Usuario() {}
 
-	public Usuario(int idUsuario, String nombre, String apellido, String tipoDocumento, long documento, String email,
+	public Usuario(int idUsuario, String nombre, String apellido, String tipoDoc, long documento, String email,
 			String nombreUsuario, String clave, Perfil perfil) {
 		super();
 		this.idUsuario = idUsuario;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.tipoDocumento = tipoDocumento;
+		this.tipoDoc = tipoDoc;
 		this.documento = documento;
 		this.email = email;
 		this.nombreUsuario = nombreUsuario;
@@ -71,12 +71,12 @@ public class Usuario {
 		this.idUsuario = idUsuario;
 	}
 
-	public String getTipoDocumento() {
-		return tipoDocumento;
+	public String getTipoDoc() {
+		return tipoDoc;
 	}
 
-	public void setTipoDocumento(String tipoDocumento) {
-		this.tipoDocumento = tipoDocumento;
+	public void setTipoDoc(String tipoDoc) {
+		this.tipoDoc = tipoDoc;
 	}
 
 	public long getDocumento() {
