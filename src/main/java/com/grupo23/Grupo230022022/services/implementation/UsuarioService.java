@@ -57,7 +57,7 @@ public class UsuarioService implements IUsuarioService, UserDetailsService{
 		String clave = bCryptPasswordEncoder.encode(usuarioModel.getClave());
 		usuarioModel.setClave(clave);
 		Usuario usuario = usuarioConverter.modelToEntity(usuarioModel);
-		usuario.setEnabled(true);
+		usuario.setHabilitado(true);
 		usuarioRepository.save(usuario);
 		return usuarioConverter.entityToModel(usuario);
 	}
@@ -87,7 +87,7 @@ public class UsuarioService implements IUsuarioService, UserDetailsService{
 	}
 	
 	private User buildUser(Usuario usuario, List<GrantedAuthority> grantedAuthorities) {
-		return new User(usuario.getNombreUsuario(), usuario.getClave(), usuario.isEnabled(),
+		return new User(usuario.getNombreUsuario(), usuario.getClave(), usuario.isHabilitado(),
 						true, true, true,
 						grantedAuthorities);
 	}

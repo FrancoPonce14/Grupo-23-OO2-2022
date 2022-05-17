@@ -8,7 +8,7 @@ import com.grupo23.Grupo230022022.models.PerfilModel;
 
 public interface IPerfilService {
 
-	public List<Perfil> getAll();
+	public List<Perfil> findAll();
 	public PerfilModel insertOrUpdate(PerfilModel PerfilModel);
 	public boolean remove(int id);
 	PerfilModel findById(int id);

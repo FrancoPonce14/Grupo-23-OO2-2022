@@ -48,11 +48,6 @@ public class Perfil {
 		this.nombre = nombre;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		return obj instanceof Perfil && ((Perfil) obj).getNombre().equalsIgnoreCase(this.nombre);
-	}
-
 	public boolean isHabilitado() {
 		return habilitado;
 	}

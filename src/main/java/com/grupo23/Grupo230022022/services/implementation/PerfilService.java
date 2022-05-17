@@ -26,7 +26,7 @@ public class PerfilService implements IPerfilService{
 	private PerfilConverter perfilConverter;	
 	
 	@Override
-	public List<Perfil> getAll() {
+	public List<Perfil> findAll() {
 		return perfilRepository.findAll();
 	}
 

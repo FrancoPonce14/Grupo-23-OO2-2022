@@ -51,7 +51,7 @@ public class AuditorController {
 	@GetMapping("/perfiles")
 	public ModelAndView verPerfiles_Auditor() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_PERFILES);
-		mAV.addObject("lstPerfiles", perfilService.getAll());
+		mAV.addObject("lstPerfiles", perfilService.findAll());
 		mAV.addObject("perfil", new PerfilModel());
 		return mAV;
 	}

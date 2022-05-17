@@ -11,7 +11,7 @@ import com.grupo23.Grupo230022022.models.UsuarioModel;
 public class UsuarioConverter {
 	
 	public UsuarioModel entityToModel(Usuario usuario) {
-		return new UsuarioModel(usuario.getIdUsuario(), usuario.getNombre(),usuario.getApellido(), usuario.getTipoDoc(),
+		return new UsuarioModel(usuario.getIdUsuario(), usuario.getNombre(),usuario.getApellido(), usuario.getTipoDocumento(),
 				usuario.getDocumento(), usuario.getEmail(), usuario.getNombreUsuario(), usuario.getClave(),usuario.getPerfil());
 	}
 	
