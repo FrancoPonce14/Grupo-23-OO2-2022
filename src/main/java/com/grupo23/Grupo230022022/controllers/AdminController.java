@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -62,13 +63,6 @@ public class AdminController {
 		mAV.addObject("usuario", new UsuarioModel());
 		mAV.addObject("usuarioActual",usuarioService.findByNombreUsuario(nombreUsuario));
 		
-		return mAV;
-	}
-	@GetMapping("/perfiles")
-	public ModelAndView perfilIndex() {
-		ModelAndView mAV = new ModelAndView(ViewRouteHelper.VER_PERFILES);
-		mAV.addObject("lstPerfiles", perfilService.findAll());
-		mAV.addObject("perfil", new PerfilModel());
 		return mAV;
 	}
 	@GetMapping("/usuario/{id}")
@@ -147,6 +141,55 @@ public class AdminController {
 			redirectAttributes.addFlashAttribute("removed", true);
 		}
 		return new RedirectView(ViewRouteHelper.ADMIN_USUARIOS);
+	}
+	//---------------------------------- PERFILES ABM 
+	@GetMapping("/perfiles")
+	public ModelAndView perfilIndex() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.VER_PERFILES);
+		mAV.addObject("lstPerfiles", perfilService.findAll());
+		mAV.addObject("perfil", new PerfilModel());
+		return mAV;
+	}
+	@GetMapping("/perfil/nuevo")
+	public String addPerfil_admin(Model model) {
+		model.addAttribute("perfil", new PerfilModel());
+		return ViewRouteHelper.AGREGAR_PERFIL;
+	}
+	@PostMapping("/perfil/crear")
+	public RedirectView createPerfil_admin(@ModelAttribute("perfil") PerfilModel perfil) {
+		perfilService.insertOrUpdate(perfil);
+		return new RedirectView (ViewRouteHelper.ADMIN_PERFILES);
+	}
+	@GetMapping("/perfil/editar/{id}")
+	public ModelAndView editarPerfil_admin(@PathVariable("id") int id) {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.EDITAR_PERFIL);
+		mAV.addObject("perfil", perfilService.findById(id));
+		return mAV;
+	}
+	@PostMapping("/perfil/editar/{id}")
+	public RedirectView updatePerfil_admin(@ModelAttribute("perfil") PerfilModel perfil) {
+		perfilService.insertOrUpdate(perfil);
+		return new RedirectView (ViewRouteHelper.ADMIN_PERFILES);
+	}
+	@GetMapping("/perfil/deshabilitar/{id}")
+	public RedirectView deshabPerfil_admin(@PathVariable("id") int id) {
+		RedirectView rv = new RedirectView(ViewRouteHelper.ADMIN_PERFILES, true);
+		PerfilModel perfil = perfilService.findById(id);
+		if (usuarioService.findByIdPerfil(id).size() > 0) {
+			rv.addStaticAttribute("error", "no se puede deshabilitar un perfil que contiene a un usuario como minimo!");
+		} else {
+			perfil.setHabilitado(false);
+			perfilService.insertOrUpdate(perfil);
+		}
+		return rv;
+	}
+	@GetMapping("/perfil/habilitar/{id}")
+	public RedirectView habPerfil_admin(@PathVariable("id") int id) {
+		RedirectView rv = new RedirectView(ViewRouteHelper.ADMIN_PERFILES, true);
+		PerfilModel perfil = perfilService.findById(id);
+		perfil.setHabilitado(true);
+		perfilService.insertOrUpdate(perfil);
+		return rv;
 	}
 
 }

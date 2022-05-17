@@ -23,4 +23,8 @@ public class ViewRouteHelper {
 	public final static String AGREGAR_USUARIO = "/perfiles/perfil_admin/usuario/nuevoUsuario";
 	public final static String EDITAR_USUARIO = "/perfiles/perfil_admin/usuario/editarUsuario";
 	public final static String ADMIN_USUARIOS = "/admin/usuarios";
+	//ABM PERFILES -A DMIN
+	public final static String AGREGAR_PERFIL = "/perfiles/perfil_admin/perfil/nuevoRol";
+	public final static String EDITAR_PERFIL= "/perfiles/perfil_admin/perfil/editarRol";
+	public final static String ADMIN_PERFILES = "/admin/perfiles";
 }

@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Admin - Perfiles</title>
+  <title>Admin - Agregar</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -31,8 +31,7 @@
 				<nav role="navigation" class="okayNav pull-right loaded" id="js-navbar-menu">
 					<ul id="navbar-nav" class="navbar-nav okayNav__nav--visible">
 						<li><a class="btn-nav" href="/">Home</a></li>
-						<li><a class="btn-nav" href="#" th:href="@{/admin/usuarios}">Usuarios</a></li>
-						<li><a class="btn-nav" href="#" th:href="@{/admin/index}">Volver atras</a></li>
+						<li><a class="btn-nav" href="#" th:href="@{/admin/perfiles/}">Volver atras</a></li>
 						</li>
 						<li><a class="btn-nav btn-border" href="#" data-toggle="modal"
 								data-target="#sign-up-form" th:href="@{/logout}">Cerrar Sesión</a></li>
@@ -47,63 +46,28 @@
 </header>
 <body class="login">
 	<div class="container">
-
-		
-		<!--<div class="login-container-wrapper clearfix">
+		<div class="login-container-wrapper clearfix">
 			<div class="logo">
-				<i class="fa fa-sign-in"></i>
+				<i class="fa fa-plus-circle"></i>
 			</div>
+			<div class="welcome"><strong>Nuevo Rol</strong></div>
+			
+			<form class="form-horizontal login-form" th:action="@{crear}" th:object="${perfil}" method="post" autocomplete="off">
+				<p><strong>Nombre:</strong> <input class="form-control input-lg" type="text" th:field="*{nombre}" required></p>
+				<br>
+	                <p>                    
+                	<label for="checkhabilitado">
+					    Habilitado
+					</label>
+                    <input class="form-control input-lg" type="checkbox" th:field="*{habilitado}" id="checkhabilitado" value="1" checked>
+                </p>
+				<button class="btn btn-success btn-lg btn-block" type="submit">Finalizar</button>
+			</form>
 
-		</div>-->
-		<div class="tablada">
-			<h1>Lista de perfiles: </h1>
-<table class="rwd-table">
-  <tr>
-    <th>Nombre</th>
-    <th>Estado</th>
-    <th>Editar</th>
-    <th>Hab/Deshab</th>
-  </tr>
- <tbody>
-   <tr th:each="perfil : ${lstPerfiles}">
-						<td><span th:text="${perfil.nombre}" /></td>
-												<td><a  th:if="${perfil.habilitado}" style="color:chartreuse">Habilitado</a>
-                        	<a th:if="${!perfil.habilitado}" style="color:red;">Deshabilitado</td>
-						</td>
-								<td>
-								<a  th:href="@{/admin/perfil/editar/{id}(id=${perfil.idPerfil})}"><img class="tamimg" src="/img/editar.png" alt="no-img" ></a> 
-										</td>
-		                     <td><a  th:if="${perfil.habilitado}" th:href="@{/admin/perfil/deshabilitar/{id}(id=${perfil.idPerfil})}"><img class="tamimg" src="/img/BasuraVerde.png" alt="no-img"></a>
-                        	<a th:if="${!perfil.habilitado}" th:href="@{/admin/perfil/habilitar/{id}(id=${perfil.idPerfil})}"><img class="tamimg" src="/img/basuraRoja.png" alt="no-img"></a></td>
-     	</tr>
-    </tbody>
-</table>
-
-<p id="pepe">&larr; <a th:href="@{/admin/perfil/nuevo}" style="color:black">click derecho para agregar a un nuevo perfil</a>  &rarr;</p>
 		</div>
-    
+					    </br>
 	</div>
-	
-
   </body>
-  <footer>
-	<div class="container3"> 
-		<div class="row">
-		   <div class="col-lg-12">
-			 <div class="alert alert-info" role="alert">
-			   <div class="row vertical-align">
-				 <div class="col-xs-1 text-center">
-				   <i class="fa fa-info fa-2x"></i> 
-				 </div>
-				 <div class="col-xs-11">
-				   <strong>Information:</strong> Estas navegando en modo Administrador, suerte!
-				 </div>
-			   </div>
-			 </div>      
-		   </div>
-		 </div>  
-	   </div>
-  </footer>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script><script  src="/js/login.js"></script>
