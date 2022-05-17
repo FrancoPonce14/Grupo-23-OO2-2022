@@ -1,5 +1,7 @@
 package com.grupo23.Grupo230022022.models;
 
+
+
 public class PerfilModel {
 	
 	private int idPerfil;
