@@ -7,8 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name="persona")
+@Data @NoArgsConstructor
 public class Persona {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +27,6 @@ public class Persona {
 	@Column(name="documento", unique=true, nullable=false, length=45)
 	private long documento;
 	
-	public Persona() {}
 
 	public Persona(int idPersona, String nombre, String apellido, long dni) {
 		super();
@@ -31,37 +34,5 @@ public class Persona {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.documento = dni;
-	}
-
-	public int getIdPersona() {
-		return idPersona;
-	}
-
-	public void setIdPersona(int idPersona) {
-		this.idPersona = idPersona;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
-	public long getDocumento() {
-		return documento;
-	}
-
-	public void setDocumento(long documento) {
-		this.documento = documento;
 	}
 }

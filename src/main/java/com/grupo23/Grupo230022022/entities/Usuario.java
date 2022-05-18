@@ -10,8 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name="usuario")
+@Data @NoArgsConstructor
 public class Usuario {
 	
 	@Id
@@ -46,8 +50,6 @@ public class Usuario {
 	@JoinColumn(name="id_perfil", nullable=false)
 	private Perfil perfil;
 
-	
-	public Usuario() {}
 
 	public Usuario(int idUsuario, String nombre, String apellido, String tipoDoc, long documento, String email,
 			String nombreUsuario, String clave, Perfil perfil) {
@@ -63,84 +65,5 @@ public class Usuario {
 		this.perfil = perfil;
 	}
 
-	public int getIdUsuario() {
-		return idUsuario;
-	}
-
-	protected void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
-	}
-
-	public String getTipoDoc() {
-		return tipoDoc;
-	}
-
-	public void setTipoDoc(String tipoDoc) {
-		this.tipoDoc = tipoDoc;
-	}
-
-	public long getDocumento() {
-		return documento;
-	}
-
-	public void setDocumento(long documento) {
-		this.documento = documento;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getNombreUsuario() {
-		return nombreUsuario;
-	}
-
-	public void setNombreUsuario(String nombreUsuario) {
-		this.nombreUsuario = nombreUsuario;
-	}
-
-	public String getClave() {
-		return clave;
-	}
-
-	public void setClave(String clave) {
-		this.clave = clave;
-	}
-
-	public boolean isHabilitado() {
-		return habilitado;
-	}
-
-	public void setHabilitado(boolean habilitado) {
-		this.habilitado = habilitado;
-	}
-	
-	public Perfil getPerfil() {
-		return perfil;
-	}
-
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
-	}
 
 }

@@ -1,10 +1,3 @@
-$(".close").click(function() {
-  $(this)
-    .parent(".alert")
-    .fadeOut();
-});
-
-
 /* ---- particles.js config ---- */
 
 particlesJS("particles-js", {
