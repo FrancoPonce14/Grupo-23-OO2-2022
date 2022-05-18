@@ -1,3 +1,6 @@
+drop database if exists `grupo23-bd-oo2-2022`;
+create database if not exists `grupo23-bd-oo2-2022`;
+use `grupo23-bd-oo2-2022`;
 -- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: grupo23-bd-oo2-2022
