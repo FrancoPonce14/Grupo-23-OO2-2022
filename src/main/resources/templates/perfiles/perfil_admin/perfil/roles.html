@@ -85,6 +85,10 @@
   <h3 class="letraletra">El perfil se editó correctamente!</h3>
   <a class="close">&times;</a>
 </div>
+<div class="alert danger-alert"  th:if="${ErrorBorrado}">
+  <h3 class="letraletra">No se puede deshabilitar un perfil que contiene a un usuario como minimo!</h3>
+  <a class="close">&times;</a>
+</div>
 
 <p id="pepe">&larr; <a th:href="@{/admin/perfil/nuevo}" style="color:black">click derecho para agregar a un nuevo perfil</a>  &rarr;</p>
 		</div>

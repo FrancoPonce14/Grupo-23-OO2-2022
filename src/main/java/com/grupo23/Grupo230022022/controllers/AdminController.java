@@ -173,11 +173,12 @@ public class AdminController {
 		return new RedirectView (ViewRouteHelper.ADMIN_PERFILES);
 	}
 	@GetMapping("/perfil/deshabilitar/{id}")
-	public RedirectView deshabPerfil_admin(@PathVariable("id") int id) {
+	public RedirectView deshabPerfil_admin(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
 		RedirectView rv = new RedirectView(ViewRouteHelper.ADMIN_PERFILES, true);
 		PerfilModel perfil = perfilService.findById(id);
 		if (usuarioService.findByIdPerfil(id).size() > 0) {
 			rv.addStaticAttribute("error", "no se puede deshabilitar un perfil que contiene a un usuario como minimo!");
+			redirectAttributes.addFlashAttribute("ErrorBorrado", true);
 		} else {
 			perfil.setHabilitado(false);
 			perfilService.insertOrUpdate(perfil);
