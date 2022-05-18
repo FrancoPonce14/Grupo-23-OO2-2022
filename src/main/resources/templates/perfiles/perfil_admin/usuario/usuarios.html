@@ -77,15 +77,30 @@
      	</tr>
     </tbody>
 </table>
-
+<div class="alert success-alert" th:if="${susscefulCrear}">
+  <h3 class="letraletra">El usuario se agregó correctamente!</h3>
+  <a class="close">&times;</a>
+</div>
+<div class="alert danger-alert" th:if="${errorCrear}">
+  <h3 class="letraletra">El usuario no pudo ser agregado, intenté otra vez!</h3>
+  <a class="close">&times;</a>
+</div>
+<div class="alert success-alert" th:if="${susscefulEditar}">
+  <h3 class="letraletra">El usuario se editó correctamente!</h3>
+  <a class="close">&times;</a>
+</div>
+<div class="alert danger-alert" th:if="${errorEditar}">
+  <h3 class="letraletra">El usuario no pudo ser editado, intenté otra vez!</h3>
+  <a class="close">&times;</a>
+</div>
+<div class="alert warning-alert" th:if="${removed}">
+  <h3 class="letraletra">El usuario fue eliminado correctamente!</h3>
+  <a class="close">&times;</a>
+</div>
 <p id="pepe">&larr; <a th:href="@{/admin/usuario/nuevo}" style="color:black">click derecho para agregar a un nuevo usuario</a>  &rarr;</p>
 		</div>
     
 	</div>
-	
- 
-
-
 
   </body>
   <footer>
@@ -109,6 +124,8 @@
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script><script  src="/js/login.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script  src="/js/alerts.js"></script>
+
 
 </body>
 

@@ -77,6 +77,14 @@
      	</tr>
     </tbody>
 </table>
+<div class="alert success-alert" th:if="${susscefulCrearP}">
+  <h3 class="letraletra">El perfil se agregó correctamente!</h3>
+  <a class="close">&times;</a>
+</div>
+<div class="alert success-alert" th:if="${susscefulEditarP}">
+  <h3 class="letraletra">El perfil se editó correctamente!</h3>
+  <a class="close">&times;</a>
+</div>
 
 <p id="pepe">&larr; <a th:href="@{/admin/perfil/nuevo}" style="color:black">click derecho para agregar a un nuevo perfil</a>  &rarr;</p>
 		</div>
@@ -106,6 +114,7 @@
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 <script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script><script  src="/js/login.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script  src="/js/alerts.js"></script>
 
 </body>
 

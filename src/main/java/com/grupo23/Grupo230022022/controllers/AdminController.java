@@ -155,8 +155,9 @@ public class AdminController {
 		return ViewRouteHelper.AGREGAR_PERFIL;
 	}
 	@PostMapping("/perfil/crear")
-	public RedirectView createPerfil_admin(@ModelAttribute("perfil") PerfilModel perfil) {
+	public RedirectView createPerfil_admin(@ModelAttribute("perfil") PerfilModel perfil, RedirectAttributes redirectAttributes) {
 		perfilService.insertOrUpdate(perfil);
+		redirectAttributes.addFlashAttribute("susscefulCrearP");
 		return new RedirectView (ViewRouteHelper.ADMIN_PERFILES);
 	}
 	@GetMapping("/perfil/editar/{id}")
@@ -166,8 +167,9 @@ public class AdminController {
 		return mAV;
 	}
 	@PostMapping("/perfil/editar/{id}")
-	public RedirectView updatePerfil_admin(@ModelAttribute("perfil") PerfilModel perfil) {
+	public RedirectView updatePerfil_admin(@ModelAttribute("perfil") PerfilModel perfil, RedirectAttributes redirectAttributes) {
 		perfilService.insertOrUpdate(perfil);
+		redirectAttributes.addFlashAttribute("susscefulEditarP");
 		return new RedirectView (ViewRouteHelper.ADMIN_PERFILES);
 	}
 	@GetMapping("/perfil/deshabilitar/{id}")
