@@ -62,7 +62,6 @@ public class AdminController {
 		mAV.addObject("lstUsuarios", usuarioService.findAll());
 		mAV.addObject("usuario", new UsuarioModel());
 		mAV.addObject("usuarioActual",usuarioService.findByNombreUsuario(nombreUsuario));
-		
 		return mAV;
 	}
 	@GetMapping("/usuario/{id}")
@@ -97,10 +96,10 @@ public class AdminController {
 			}
 		}
 		if(salioError) {
-			redirectAttributes.addFlashAttribute("error", true);
+			redirectAttributes.addFlashAttribute("errorCrear", true);
 		}else {
 		usuarioService.insertOrUpdate(usuarioModel);
-		redirectAttributes.addFlashAttribute("sussceful", true);
+		redirectAttributes.addFlashAttribute("susscefulCrear", true);
 		}
 		return new RedirectView(ViewRouteHelper.ADMIN_USUARIOS);
 	}	
@@ -120,10 +119,10 @@ public class AdminController {
 
 			for (Usuario u : lstUsuarios) {
 				if (u.getDocumento() == usuario.getDocumento() && u.getIdUsuario() != usuario.getIdUsuario()) {
-					redirectAttributes.addFlashAttribute("error", true);
+					redirectAttributes.addFlashAttribute("errorEditar", true);
 				} else {
 					usuarioService.insertOrUpdate(usuarioModel);
-					redirectAttributes.addFlashAttribute("sussceful", true);
+					redirectAttributes.addFlashAttribute("susscefulEditar", true);
 				}
 			}
 

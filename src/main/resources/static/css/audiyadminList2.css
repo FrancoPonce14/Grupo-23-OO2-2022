@@ -421,7 +421,8 @@ h1 {
 }
 #pepe{
   color: black;
-  text-align: center;
+  text-align: left;
+
 }
 
 .rwd-table {
@@ -446,7 +447,7 @@ h1 {
 }
 
 .tablada{
-  max-width: 950px;
+  max-width: 550px;
   margin: 10% auto 8%;
   padding: 10px;
   box-sizing: border-box;
