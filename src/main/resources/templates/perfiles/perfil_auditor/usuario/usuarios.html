@@ -63,6 +63,7 @@
     <th>Nombre</th>
     <th>Apellido</th>
     <th>Documento</th>
+    <th>Tipo</th>
     <th>Email</th>
     <th>Rol</th>
   </tr>
@@ -72,6 +73,7 @@
 						<td><span th:text="${usuario.nombre}" /></td>
 						<td><span th:text="${usuario.apellido}" /></td>
 						<td><span th:text="${usuario.documento}" /></td>
+						<td><span th:text="${usuario.tipoDoc}" /></td>
 						<td><span th:text="${usuario.email}" /></td>
 						<td><span th:text="${usuario.getPerfil().getNombre()}" /></td>
      	</tr>
