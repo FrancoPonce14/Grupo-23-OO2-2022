@@ -2,6 +2,7 @@ package com.grupo23.Grupo230022022.controllers;
 
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,8 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.grupo23.Grupo230022022.converters.PerfilConverter;
-import com.grupo23.Grupo230022022.converters.UsuarioConverter;
+
 import com.grupo23.Grupo230022022.entities.Perfil;
 import com.grupo23.Grupo230022022.entities.Usuario;
 import com.grupo23.Grupo230022022.helpers.ViewRouteHelper;
@@ -39,12 +39,8 @@ public class AdminController {
 	@Autowired
 	@Qualifier("perfilService")
 	private IPerfilService perfilService;
-	@Autowired
-	@Qualifier("perfilConverter")
-	private PerfilConverter perfilConverter;
-	@Autowired
-	@Qualifier("usuarioConverter")
-	private UsuarioConverter usuarioConverter;
+	
+	private ModelMapper modelMapper = new ModelMapper();
 	
 	@GetMapping("/index")
 	public ModelAndView indexAdmin(@RequestParam(name="nombreUsuario",required=false) String nombreUsuario) {
@@ -83,13 +79,12 @@ public class AdminController {
 	@PostMapping("/usuario/crear")
 	public RedirectView createUsuario_admin(@ModelAttribute("usuario") UsuarioModel usuarioModel, RedirectAttributes redirectAttributes) {
 
-		PerfilModel model = perfilService.findById(usuarioModel.getIdPerfil());
-		Perfil perfil = perfilConverter.modelToEntity(model);
+		Perfil perfil = modelMapper.map(perfilService.findById(usuarioModel.getIdPerfil()), Perfil.class);
 		usuarioModel.setPerfil(perfil);
 		boolean salioError = false;
 		
 		List<Usuario> lstUsuarios = usuarioService.findAll();
-		Usuario usuario = usuarioConverter.modelToEntity(usuarioModel);
+		Usuario usuario = modelMapper.map(usuarioModel, Usuario.class);
 		for(Usuario u : lstUsuarios) {
 			if(u.getDocumento() == usuario.getDocumento() && u.getIdUsuario() != usuario.getIdUsuario()) {
 				     salioError = true;
@@ -110,11 +105,10 @@ public class AdminController {
 
 		UsuarioModel user = usuarioService.findByNombreUsuario(auth.getName());
 		List<Usuario> lstUsuarios = usuarioService.findAll();
-		Usuario usuario = usuarioConverter.modelToEntity(usuarioModel);
+		Usuario usuario = modelMapper.map(usuarioModel, Usuario.class);
 
 		if (!user.equals(usuarioModel)) {
-			PerfilModel model = perfilService.findById(usuarioModel.getIdPerfil());
-			Perfil perfil = perfilConverter.modelToEntity(model);
+			Perfil perfil = modelMapper.map(perfilService.findById(usuarioModel.getIdPerfil()), Perfil.class);
 			usuarioModel.setPerfil(perfil);
 
 			for (Usuario u : lstUsuarios) {

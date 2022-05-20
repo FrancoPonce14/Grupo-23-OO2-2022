@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,7 +17,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.grupo23.Grupo230022022.converters.UsuarioConverter;
 import com.grupo23.Grupo230022022.entities.Perfil;
 import com.grupo23.Grupo230022022.entities.Usuario;
 import com.grupo23.Grupo230022022.models.UsuarioModel;
@@ -31,9 +31,7 @@ public class UsuarioService implements IUsuarioService, UserDetailsService{
 	@Qualifier("usuarioRepository")
 	private IUsuarioRepository usuarioRepository;
 	
-	@Autowired
-	@Qualifier("usuarioConverter")
-	private UsuarioConverter usuarioConverter;
+	private ModelMapper modelMapper = new ModelMapper();
 	
 	@Override
 	public List<Usuario> findAll() {
@@ -42,12 +40,12 @@ public class UsuarioService implements IUsuarioService, UserDetailsService{
 
 	@Override
 	public UsuarioModel findById(int id) {
-		return usuarioConverter.entityToModel(usuarioRepository.findByIdUsuario(id));
+		return modelMapper.map(usuarioRepository.findByIdUsuario(id), UsuarioModel.class);
 	}
 
 	@Override
 	public UsuarioModel findByNombreUsuario(String nombreUsuario) {
-		return usuarioConverter.entityToModel(usuarioRepository.findByNombreUsuario(nombreUsuario));
+		return modelMapper.map(usuarioRepository.findByNombreUsuario(nombreUsuario), UsuarioModel.class);
 	}
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -56,10 +54,10 @@ public class UsuarioService implements IUsuarioService, UserDetailsService{
 	public UsuarioModel insertOrUpdate(UsuarioModel usuarioModel) {
 		String clave = bCryptPasswordEncoder.encode(usuarioModel.getClave());
 		usuarioModel.setClave(clave);
-		Usuario usuario = usuarioConverter.modelToEntity(usuarioModel);
+		Usuario usuario = modelMapper.map(usuarioModel, Usuario.class);
 		usuario.setHabilitado(true);
 		usuarioRepository.save(usuario);
-		return usuarioConverter.entityToModel(usuario);
+		return modelMapper.map(usuario, UsuarioModel.class);
 	}
 
 	@Override

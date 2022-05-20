@@ -2,11 +2,11 @@ package com.grupo23.Grupo230022022.services.implementation;
 
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.grupo23.Grupo230022022.converters.PersonaConverter;
 import com.grupo23.Grupo230022022.entities.Persona;
 import com.grupo23.Grupo230022022.models.PersonaModel;
 import com.grupo23.Grupo230022022.repositories.IPersonaRepository;
@@ -19,10 +19,8 @@ public class PersonaService implements IPersonaService{
 	@Qualifier("personaRepository")
 	private IPersonaRepository personaRepository;
 	
-	@Autowired
-	@Qualifier("personaConverter")
-	private PersonaConverter personaConverter;
-
+	private ModelMapper modelMapper = new ModelMapper();
+	
 	@Override
 	public List<Persona> getAll() {
 		return personaRepository.findAll();
@@ -38,7 +36,7 @@ public class PersonaService implements IPersonaService{
 		Persona persona = personaRepository.findByIdPersona(idPersona);
 		PersonaModel personaModel = null;
 		if(persona != null) 
-			personaModel = personaConverter.entityToModel(persona);
+			personaModel = modelMapper.map(persona, PersonaModel.class);
 		return personaModel;
 	}
 
@@ -47,7 +45,7 @@ public class PersonaService implements IPersonaService{
 		Persona persona = personaRepository.findByNombre(nombre);
 		PersonaModel personaModel = null;
 		if(persona != null) 
-			personaModel = personaConverter.entityToModel(persona);
+			personaModel = modelMapper.map(persona, PersonaModel.class);
 		return personaModel;
 	}
 
@@ -56,7 +54,7 @@ public class PersonaService implements IPersonaService{
 		Persona persona = personaRepository.findByApellido(apellido);
 		PersonaModel personaModel = null;
 		if(persona != null) 
-			personaModel = personaConverter.entityToModel(persona);
+			personaModel = modelMapper.map(persona, PersonaModel.class);
 		return personaModel;
 	}
 

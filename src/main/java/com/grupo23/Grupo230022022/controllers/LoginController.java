@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.grupo23.Grupo230022022.converters.PerfilConverter;
 import com.grupo23.Grupo230022022.helpers.ViewRouteHelper;
 import com.grupo23.Grupo230022022.services.IPerfilService;
 import com.grupo23.Grupo230022022.services.IUsuarioService;
@@ -31,9 +30,6 @@ public class LoginController {
 	@Autowired
 	@Qualifier("perfilService")
 	private IPerfilService perfilService;
-	@Autowired
-	@Qualifier("perfilConverter")
-	private PerfilConverter perfilConverter;
 	
 	
 	@GetMapping("/")
