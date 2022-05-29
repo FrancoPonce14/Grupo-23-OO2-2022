@@ -49,7 +49,15 @@ public class AdminController {
 		 nombreUsuario = auth.getName();
 		 mVA.addObject("nombreUsuario", nombreUsuario);
 		return mVA;
-	}	
+	}
+	@GetMapping("/dashboard")
+	public ModelAndView dashboard(@RequestParam(name="nombreUsuario",required=false) String nombreUsuario) {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.DASHBOARD);
+		org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		 nombreUsuario = auth.getName();
+		 mAV.addObject("nombreUsuario", nombreUsuario);
+		return mAV;
+	}
 	@GetMapping("/usuarios")
 	public ModelAndView verUsuarios_Admin() {
 		org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
