@@ -44,29 +44,47 @@
 			</div> <!-- End: .col-xs-9 -->
 		</div> <!-- End: .row -->
 	</div> <!-- End: .container -->
+    <div class="styleAssl">
+        <a href="#">Sistema de Administración:</a>
+          </div>
 </header>
+
 <body class="login">
-	<div class="container">
-
-		
-	<!--	<div class="login-container-wrapper clearfix">
-			<div class="logo">
-				<i class="fa fa-sign-in"></i>
-			</div>
-			<hr>
-
-				<h1 class="text-centerr" class="coloritos">SESSION</h1>
-				<h1 class="text-centerr" class="coloritos">CERRADA</h1>
-				<h1 class="text-centerr" class="coloritos">CORRECTAMENTE!</h1>
-
-			<hr>
-			<br>
-			<div class="form-group">
-			    <button onclick="location.href='/'" class="btn btn-success btn-lg btn-block">Inicio</button>
-			  </div>
-		</div>-->
-    
-	</div>
+	<!--<div class="container">-->
+        <div class="wrapper">
+            
+            <div class="controler">
+                
+              <ul>
+              <!--  <li class="active">
+                  <a href="#one" class="option">
+                    <h2>Gestion de Aulas</h2>
+                    <h5>Click derecho para empezar a gestionar las aulas</h5>
+                  </a>
+                </li>-->
+                <li>
+                  <a href="#" class="option" th:href="@{/admin/dashboard}">
+                    <h2>Modo Administrador</h2>
+                    <h5>Click derecho para ser redirigido a un menu mas interactivo</h5>
+                  </a>
+                </li>
+                <!--<li>
+                  <a href="#three" class="option">
+                    <h2>Modo Administrador</h2>
+                    <h5>Click derecho para ser redirigido a un menu mas interactivo</h5>
+                  </a>
+                </li>-->
+              </ul>
+            </div>
+            <div class="visual">
+              <div class="rings">
+                <div class="inner-ring"></div>
+                <div class="middle-ring"></div>
+                <div class="outer-ring"></div>
+              </div>
+            </div>
+          </div>
+<!--	</div> -->
 
   </body>
 
