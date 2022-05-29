@@ -15,10 +15,10 @@ public class Profesor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="nombre")
+	@Column(name="nombre", nullable=false)
 	private String nombre;
 	
-	@Column(name="apellido")
+	@Column(name="apellido", nullable=false)
 	private String appelido;
 	
 	@Column(name="documento", unique=true)
