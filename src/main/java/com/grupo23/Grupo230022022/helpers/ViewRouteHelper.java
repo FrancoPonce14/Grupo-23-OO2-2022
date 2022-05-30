@@ -98,6 +98,9 @@ public class ViewRouteHelper {
 	public final static String AUDITOR_CREAR_NOTAPEDIDO = "/perfiles/perfil_auditor/notaPedido/crearPedido";
 	public final static String AUDITOR_NOTAPEDIDO_VER_CURSO = "/perfiles/perfil_auditor/notaPedido/verCurso";
 	public final static String AUDITOR_NOTAPEDIDO_VER_FINAL = "/perfiles/perfil_auditor/notaPedido/verFinal";
+	public final static String AUDITOR_NOTAPEDIDO_SELECT = "/perfiles/perfil_auditor/notaPedido/select";
+	public final static String AUDITOR_NOTAPEDIDO_NUEVO_C = "/perfiles/perfil_auditor/notaPedido/crearCurso";
+	public final static String AUDITOR_NOTAPEDIDO_NUEVO_F = "/perfiles/perfil_auditor/notaPedido/crearFinal";
 	public final static String AUDITOR_INDEX_MATERIA = "/perfiles/perfil_auditor/materia/index";
 	public final static String AUDITOR_INDEX_ESPACIO = "/perfiles/perfil_auditor/espacio/index";
 	public final static String AUDITOR_INDEX_EDIFICIO = "/perfiles/perfil_auditor/edificio/index";

@@ -71,6 +71,41 @@ public class NotaPedidoController {
 		}
 		return ruta; 
 	}
+	@GetMapping("/auditor/select")
+	public ModelAndView select_a() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_NOTAPEDIDO_SELECT);
+		return mAV;
+	}
+	@GetMapping("/auditor/nuevo/curso")
+	public ModelAndView create_curso_a() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_NOTAPEDIDO_NUEVO_C);
+		mAV.addObject("curso", new Curso()); 
+		mAV.addObject("lstProfesores", profesorService.getAll()); 
+		mAV.addObject("lstAulas", aulaService.getAll()); 
+		mAV.addObject("lstMaterias", materiaService.getAll()); 
+		return mAV;
+	}
+	@PostMapping("/auditor/curso/crear")
+	public RedirectView create_sussces_curso_a(@ModelAttribute("curso") Curso curso, RedirectAttributes redirectAttributes){
+		notaPedidoService.insertOrUpdate(curso);
+		redirectAttributes.addFlashAttribute("curso_bien", true); 
+		return new RedirectView(ViewRouteHelper.PERFIL_AUDITOR);
+	}
+	@GetMapping("/auditor/nuevo/final")
+	public ModelAndView create_final_a() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_NOTAPEDIDO_NUEVO_F);
+		mAV.addObject("final", new Final()); 
+		mAV.addObject("lstProfesores", profesorService.getAll()); 
+		mAV.addObject("lstAulas", aulaService.getAll()); 
+		mAV.addObject("lstMaterias", materiaService.getAll()); 
+		return mAV;
+	}
+	@PostMapping("/auditor/final/crear")
+	public RedirectView create_sussces_final_a(@ModelAttribute("final") Final finall, RedirectAttributes redirectAttributes){
+		notaPedidoService.insertOrUpdate(finall);
+		redirectAttributes.addFlashAttribute("final_bien", true);
+		return new RedirectView(ViewRouteHelper.PERFIL_AUDITOR);
+	}
 	@GetMapping("/select")
 	public ModelAndView select() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.NOTAPEDIDO_SELECT);

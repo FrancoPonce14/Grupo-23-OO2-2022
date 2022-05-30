@@ -22,15 +22,15 @@
                     <p>*Todos los campos son obligatorios</p>
                     <form action="#" class="df-form" th:action="@{/notaPedido/curso/crear}" th:object="${curso}" method="post" autocomplete="off">
                         <div class="df-input-box">
-             					codCurso:
+             				<h1 style="color:white">CodCurso: </h1>
                             <input type="text" name="codCurso" placeholder="codigo" required  th:field="*{codCurso}">
                             <label for="codCurso"></label>
                             <hr>
-                        	 Fecha:
+                        	<h1 style="color:white">Fecha: </h1>
                             <input type="date" name="number" placeholder="numero" required  th:field="*{fecha}">
                             <label for="number"></label>
                             <hr>
-                  			turno:
+                  			<h1 style="color:white">Turno: </h1>
                              <select  th:field="*{turno}" required >
 									<option value="T">MAÑANA</option>
 								    <option value="N">TARDE</option>
@@ -38,7 +38,7 @@
 							</select>
                             <hr>
         				<p>
-                                Aula:
+                                <h1 style="color:white">Aula: </h1>
                                 <select th:field="*{aula}" class="df-form">
                                     <option th:each="a : ${lstAulas}"
                                       th:value="${a.id}" 
@@ -46,12 +46,12 @@
                               </select>
                             </p>
                             <hr>
-                             Cantidad de estudiantes:
+                             <h1 style="color:white">Cantidad de estudiantes: </h1>
                             <input type="text" name="cantEstudiantes" placeholder="cantidad de estudiantes" required  th:field="*{cantEstudiantes}">
                             <label for="cantEstudiantes"></label>
                             <hr>
                             <p>
-                                Materia:
+                                <h1 style="color:white">Materia: </h1>
                                 <select th:field="*{materia}" class="df-form">
                                     <option th:each="m : ${lstMaterias}"
                                       th:value="${m.id}" 
@@ -59,12 +59,12 @@
                               </select>
                             </p>
                             <hr>
-                     			Observaciones:
+                     			<h1 style="color:white">Observaciones: </h1>
                             <input type="text" name="cantEstudiantes" placeholder="observaciones" required  th:field="*{observaciones}">
                             <label for="cantEstudiantes"></label>
                             <hr>
                                              <p>
-                                profesor:
+                                <h1 style="color:white">Profesor: </h1>
                                 <select th:field="*{profesor}" class="df-form">
                                     <option th:each="p : ${lstProfesores}"
                                       th:value="${p.id}" 
@@ -72,7 +72,7 @@
                               </select>
                             </p>
                             <hr>
-                            Modalidad:
+                            <h1 style="color:white">Modalidad: </h1>
                              <select  th:field="*{modalidad}" required >
 									<option value="Presencial - 100%">FULL PRESENCIAL</option>
 								    <option value="Presencial - 50%">SEMI PRESENCIAL</option>

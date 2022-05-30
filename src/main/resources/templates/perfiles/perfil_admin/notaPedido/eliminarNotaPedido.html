@@ -174,10 +174,10 @@
 					            <td>
 								<a  id="df-contact" class="df-contact" th:href="@{/notaPedido/ver/{id}(id=${pedidos.id})}"><img class="tamimg" src="/img/view.png" alt="no-img" widht=20px height=20px></a> 
 								</td>
-								 <td th:if="${pedidos instanceof T(com.unla.Grupo23OO22022pruebas.entities.Curso)}">
+								 <td th:if="${pedidos instanceof T(com.grupo23.Grupo230022022.entities.Curso)}">
 								<a  id="df-contact" class="df-contact" th:href="@{/notaPedido/eliminar/{id}(id=${pedidos.id})}"><img class="tamimg" src="/img/basura.png" alt="no-img" widht=20px height=20px></a> 
 										</td>
-									<td th:if="${pedidos instanceof T(com.unla.Grupo23OO22022pruebas.entities.Final)}">
+									<td th:if="${pedidos instanceof T(com.grupo23.Grupo230022022.entities.Final)}">
 								<a  id="df-contact" class="df-contact" th:href="@{/notaPedido/eliminar/{id}(id=${pedidos.id})}"><img class="tamimg" src="/img/basura.png" alt="no-img" widht=20px height=20px></a> 
 										</td>
 								</tr>
