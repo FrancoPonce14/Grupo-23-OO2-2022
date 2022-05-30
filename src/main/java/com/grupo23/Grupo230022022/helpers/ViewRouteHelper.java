@@ -49,4 +49,12 @@ public class ViewRouteHelper {
 	public final static String AULA_EDITAR_L = "/perfiles/perfil_admin/aula/editarLaboratorio";
 	public final static String AULA_EDITAR_T = "/perfiles/perfil_admin/aula/editarTradicional";
 	public final static String AULA_ELIMINAR = "/perfiles/perfil_admin/aula/eliminarAula";
+	//ESPACIO ADMIN
+	public final static String ESPACIO_REDIRECT = "/espacio/admin/index";
+	public final static String INDEX_ESPACIO = "/perfiles/perfil_admin/espacio/index";
+	public final static String ESPACIO_NUEVO = "/perfiles/perfil_admin/espacio/crearEspacio";
+	public final static String ESPACIO_AGREGAR = "/perfiles/perfil_admin/espacio/agregarEspacio";
+	public final static String ESPACIO_EDITAR = "/perfiles/perfil_admin/espacio/editarEspacio";
+	public final static String ESPACIO_EDIT = "/perfiles/perfil_admin/espacio/edit";
+	public final static String ESPACIO_ELIMINAR = "/perfiles/perfil_admin/espacio/eliminarEspacio";
 }

@@ -1,13 +1,18 @@
 package com.grupo23.Grupo230022022.repositories;
 
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.time.LocalDate;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
+
+import com.grupo23.Grupo230022022.entities.Aula;
 import com.grupo23.Grupo230022022.entities.Espacio;
+
 
 public interface IEspacioRepository extends JpaRepository<Espacio, Integer>{
 	
-	
+	public abstract Espacio traer(LocalDate fecha, char turno, @Param("aula") Aula aula); 
 
 	
 }
