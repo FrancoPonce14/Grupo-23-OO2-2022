@@ -12,10 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.unla.Grupo23OO22022pruebas.entities.Carrera;
-import com.unla.Grupo23OO22022pruebas.helpers.ViewRouteHelper;
-import com.unla.Grupo23OO22022pruebas.services.ICarreraService;
-import com.unla.Grupo23OO22022pruebas.services.IDepartamentoService;
+import com.grupo23.Grupo230022022.entities.Carrera;
+import com.grupo23.Grupo230022022.helpers.ViewRouteHelper;
+import com.grupo23.Grupo230022022.services.ICarreraService;
+import com.grupo23.Grupo230022022.services.IDepartamentoService;
+
 
 @Controller
 @RequestMapping("/carrera")

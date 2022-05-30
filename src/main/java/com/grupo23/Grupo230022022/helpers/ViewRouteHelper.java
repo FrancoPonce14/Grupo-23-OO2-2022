@@ -73,4 +73,12 @@ public class ViewRouteHelper {
 	public final static String CARRERA_EDITAR = "/perfiles/perfil_admin/carrera/editarCarrera";
 	public final static String CARRERA_EDIT = "/perfiles/perfil_admin/carrera/edit";
 	public final static String CARRERA_ELIMINAR = "/perfiles/perfil_admin/carrera/eliminarCarrera";
+	//MATERIA ADMIN
+	public final static String MATERIA_REDIRECT = "/materia/admin/index";
+	public final static String INDEX_MATERIA = "/perfiles/perfil_admin/materia/index";
+	public final static String MATERIA_NUEVO = "/perfiles/perfil_admin/materia/crearMateria";
+	public final static String MATERIA_AGREGAR = "/perfiles/perfil_admin/materia/agregarMateria";
+	public final static String MATERIA_EDITAR = "/perfiles/perfil_admin/materia/editarMateria";
+	public final static String MATERIA_EDIT = "/perfiles/perfil_admin/materia/edit";
+	public final static String MATERIA_ELIMINAR = "/perfiles/perfil_admin/materia/eliminarMateria";
 }
