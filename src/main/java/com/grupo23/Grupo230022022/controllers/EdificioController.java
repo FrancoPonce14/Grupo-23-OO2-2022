@@ -32,6 +32,13 @@ public class EdificioController {
 	@Qualifier("aulaService")
 	private IAulaService aulaService;
 	
+	@GetMapping("/index")
+	public ModelAndView index_audi() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_INDEX_EDIFICIO);
+		mAV.addObject("lstEdificios", edificioService.getAll());
+		return mAV;
+	}
+	
 	@GetMapping("/admin/index") //MUESTRO LA VISTA PERO SOLO LA PUEDE VER EL ADMIN YA QUE ESTO ES PARTE DEL DASHBOARD - EL AUDITOR TIENE OTRA VISTA DIFERENTE
 	public ModelAndView index() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.INDEX_EDIFICIO);

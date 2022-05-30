@@ -157,5 +157,23 @@ public class NotaPedidoController {
 		redirectAttributes.addFlashAttribute("pedido_eliminado", true);
 		return new RedirectView(ViewRouteHelper.NOTAPEDIDO_REDIRECT);
 	}
+
+	@GetMapping("/estado/deshabilitar/{id}")
+	public RedirectView deshabPerfil_admin(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
+		RedirectView rv = new RedirectView(ViewRouteHelper.NOTAPEDIDO_REDIRECT, true);
+		NotaPedido np = notaPedidoService.findById(id);
+		np.setEstado(false);
+		notaPedidoService.insertOrUpdate(np);
+		return rv;
+	}
+
+	@GetMapping("/estado/habilitar/{id}")
+	public RedirectView habPerfil_admin(@PathVariable("id") int id) {
+		RedirectView rv = new RedirectView(ViewRouteHelper.NOTAPEDIDO_REDIRECT, true);
+		NotaPedido np = notaPedidoService.findById(id);
+		np.setEstado(true);
+		notaPedidoService.insertOrUpdate(np);
+		return rv;
+	}
 	
 }

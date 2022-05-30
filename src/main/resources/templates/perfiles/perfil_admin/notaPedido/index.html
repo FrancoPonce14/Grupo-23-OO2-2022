@@ -159,6 +159,7 @@
 									<td>Observaciones</td>
 									<td>Profesor</td>
 									<td>+info</td>
+									<td>Estado</td>
 								</tr>
 							</thead>
 							<tbody>
@@ -173,6 +174,8 @@
 					            <td>
 								<a  id="df-contact" class="df-contact" th:href="@{/notaPedido/ver/{id}(id=${pedidos.id})}"><img class="tamimg" src="/img/view.png" alt="no-img" widht=20px height=20px></a> 
 								</td>
+								<td><a  th:if="${pedidos.estado}" th:href="@{/notaPedido/estado/deshabilitar/{id}(id=${pedidos.id})}"><img class="tamimg" src="/img/confirmar.png" alt="no-img" widht=20px height=20px></a>
+                        			 <a th:if="${!pedidos.estado}" th:href="@{/notaPedido/estado/habilitar/{id}(id=${pedidos.id})}"><img class="tamimg" src="/img/stopwatch.png" alt="no-img" widht=20px height=20px></a></td>
 								</tr>
 							</tbody>
 						</table>

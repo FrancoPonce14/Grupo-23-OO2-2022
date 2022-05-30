@@ -44,8 +44,8 @@ public class NotaPedido {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "profesor_id")
 	private Profesor profesor;
-	
 
-	
+	@Column(name = "estado")
+	private boolean estado;
 
 }

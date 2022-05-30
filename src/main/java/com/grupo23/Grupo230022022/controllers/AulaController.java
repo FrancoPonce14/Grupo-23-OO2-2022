@@ -33,14 +33,13 @@ public class AulaController {
 	@Qualifier("edificioService")
 	private IEdificioService edificioService;
 	
-	/*@GetMapping("/index") //EL INDEX PARA LA VISTA DEL AUDITOR
+	@GetMapping("/index") //EL INDEX PARA LA VISTA DEL AUDITOR
 	public ModelAndView index() {
-		ModelAndView mAV = new ModelAndView(ViewRouteHelper.INDEX_AULA_U);
-		mAV.addObject("lstAulas", aulaService.getAll());
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_INDEX_AULA);
 		mAV.addObject("lstLaboratorios", aulaService.getAllLaboratorio());
 		mAV.addObject("lstTradicionales", aulaService.getAllTradicional());
 		return mAV;
-	}*/
+	}
 	@GetMapping("/admin/index")
 	public ModelAndView index_admin() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.INDEX_AULA);
