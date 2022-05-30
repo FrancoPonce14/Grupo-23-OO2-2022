@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Pedidos</title>
+  <title>Pedido - Curso</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -50,7 +50,7 @@
 <p id="pepe">&larr; <a th:href="@{/admin/usuario/nuevo}" style="color:black">click derecho para agregar a un nuevo usuario</a>  &rarr;</p>
 		</div>-->
 <div class="francoponce">
-		<h1><span class="blue">&lt;</span>Pedidos<span class="blue">&gt;</span> <span class="yellow">Lista</pan></h1>
+		<h1><span class="blue">&lt;</span>Pedido<span class="blue">&gt;</span> <span class="yellow">Curso</pan></h1>
 
 
 			<table class="container">
@@ -63,25 +63,22 @@
 						<th><h1>Materia</h1></td>
 						<th><h1>Observaciones</h1></td>
 						<th><h1>Profesor</h1></td>
-						<th><h1>+info</h1></td>
-						<th><h1>Estado</h1></th>
+						<th><h1>Codigo</h1></td>
+						<th><h1>Modalidad</h1></th>
 						
 					</tr>
 				</thead>
 				<tbody>
-				   <tr th:each="pedidos: ${lstPedidos}">
-    					 <td><span th:text="${pedidos.fecha}" /></td>
-    					 <td><span th:text="${pedidos.turno}" /></td>
-    					 <td><span th:text="${pedidos.aula.numero}" /></td>
-    					 <td><span th:text="${pedidos.cantEstudiantes}" /></td>
-    					 <td><span th:text="${pedidos.materia.nombre}" /></td>
-    					 <td><span th:text="${pedidos.observaciones}" /></td>
-    					 <td><span th:text="${pedidos.profesor.nombre}" /></td>
-    			         <td>
-						 <a  id="df-contact" class="df-contact" th:href="@{/notaPedido/auditor/ver/{id}(id=${pedidos.id})}"><img class="tamimg" src="/img/view.png" alt="no-img" widht=20px height=20px></a> 
-						 </td>
-    					 <td><a  th:if="${pedidos.estado}"><img class="tamimg" src="/img/confirmar.png" alt="no-img" widht=20px height=20px></a>
-                        			 <a th:if="${!pedidos.estado}"><img class="tamimg" src="/img/stopwatch.png" alt="no-img" widht=20px height=20px></a></td>
+				   <tr>
+    					 <td><span th:text="${pedidoCurso.fecha}" /></td>
+    					 <td><span th:text="${pedidoCurso.turno}" /></td>
+    					 <td><span th:text="${pedidoCurso.aula.numero}" /></td>
+    					 <td><span th:text="${pedidoCurso.cantEstudiantes}" /></td>
+    					 <td><span th:text="${pedidoCurso.materia.nombre}" /></td>
+    					 <td><span th:text="${pedidoCurso.observaciones}" /></td>
+    					 <td><span th:text="${pedidoCurso.profesor.nombre}" /></td>
+    				     <td><span th:text="${pedidoCurso.codCurso}" /></td>
+						 <td><span th:text="${pedidoCurso.modalidad}" /></td>
      	</tr>
 				</tbody>
 			</table>

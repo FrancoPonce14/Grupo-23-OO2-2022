@@ -45,11 +45,31 @@ public class NotaPedidoController {
 	private IProfesorService profesorService;
 	
 	//MOSTRAR NOTAS PEDIDOS - ADMIN
+	@GetMapping("/index")
+	public ModelAndView verNotasPedido_aud() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_INDEX_NOTAPEDIDO);
+		mAV.addObject("lstPedidos", notaPedidoService.getAll());	
+		return mAV;
+	}
 	@GetMapping("/admin/index")
 	public ModelAndView verNotasPedido() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.INDEX_NOTAPEDIDO);
 		mAV.addObject("lstPedidos", notaPedidoService.getAll());	
 		return mAV;
+	}
+	@GetMapping("/auditor/ver/{id}")
+	public String ver_auditr(Model model, @PathVariable("id") int id) {
+		NotaPedido dd = notaPedidoService.findById(id);
+		String ruta = "";
+		if(dd instanceof Curso) {
+			model.addAttribute("pedidoCurso",(Curso) dd);
+			ruta = ViewRouteHelper.AUDITOR_NOTAPEDIDO_VER_CURSO;
+
+		}else if(dd instanceof Final) {
+			model.addAttribute("pedidoFinal", (Final) dd);
+			ruta = ViewRouteHelper.AUDITOR_NOTAPEDIDO_VER_FINAL;
+		}
+		return ruta; 
 	}
 	@GetMapping("/select")
 	public ModelAndView select() {
