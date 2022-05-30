@@ -39,4 +39,14 @@ public class ViewRouteHelper {
 	public final static String EDIFICIO_EDIT = "/perfiles/perfil_admin/edificio/edit";
 	public final static String EDIFICIO_ELIMINAR = "/perfiles/perfil_admin/edificio/eliminarEdificio";
 	public final static String EDIFICIO_CON_AULAS = "/perfiles/perfil_admin/edificio/verEdificiosConAulas"; //PARA VER EDIFICIOS CON AULA, EL EDIFICIO TIENEN QUE TENER COMO MINIMO 1 AULA, SINO TIRA ERROR (SE PUEDE ARREGLAR, PERO NO LLEGAMOS CON EL TIEMPO)
+	//AULA ADMIN
+	public final static String AULA_REDIRECT = "/aula/admin/index";
+	public final static String INDEX_AULA = "/perfiles/perfil_admin/aula/indexadmin";
+	public final static String AULA_SELECT = "/perfiles/perfil_admin/aula/select";
+	public final static String AULA_NUEVO_L = "/perfiles/perfil_admin/aula/crearLaboratorio";
+	public final static String AULA_NUEVO_T = "/perfiles/perfil_admin/aula/crearTradicional";
+	public final static String AULA_EDITAR = "/perfiles/perfil_admin/aula/editarAula";
+	public final static String AULA_EDITAR_L = "/perfiles/perfil_admin/aula/editarLaboratorio";
+	public final static String AULA_EDITAR_T = "/perfiles/perfil_admin/aula/editarTradicional";
+	public final static String AULA_ELIMINAR = "/perfiles/perfil_admin/aula/eliminarAula";
 }

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.grupo23.Grupo230022022.entities.Aula;
+import com.grupo23.Grupo230022022.entities.Laboratorio;
+import com.grupo23.Grupo230022022.entities.Tradicional;
 import com.grupo23.Grupo230022022.repositories.IAulaRepository;
 import com.grupo23.Grupo230022022.services.IAulaService;
 
@@ -46,6 +48,25 @@ public class AulaService implements IAulaService{
 		}catch(Exception he) {
 			return false;
 		}
+	}
+	@Override
+	public List<Tradicional> getAllTradicional() {
+		return aulaRepository.getTradicional();
+	}
+
+	@Override
+	public List<Laboratorio> getAllLaboratorio() {
+		return aulaRepository.getLaboratorio();
+	}
+
+	@Override
+	public List<Tradicional> getAllTradicionalID(int id) {
+		return aulaRepository.getAllTradicionalID(id);
+	}
+
+	@Override
+	public List<Laboratorio> getAllLaboratorioID(int id) {
+		return aulaRepository.getAllLaboratorioID(id);
 	}
 
 }
