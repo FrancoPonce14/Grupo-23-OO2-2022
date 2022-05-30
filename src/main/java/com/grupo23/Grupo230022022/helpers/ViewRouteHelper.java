@@ -57,4 +57,12 @@ public class ViewRouteHelper {
 	public final static String ESPACIO_EDITAR = "/perfiles/perfil_admin/espacio/editarEspacio";
 	public final static String ESPACIO_EDIT = "/perfiles/perfil_admin/espacio/edit";
 	public final static String ESPACIO_ELIMINAR = "/perfiles/perfil_admin/espacio/eliminarEspacio";
+	//DEPARTAMENTO ADMIN
+	public final static String DEPARTAMENTO_REDIRECT = "/departamento/admin/index";
+	public final static String INDEX_DEPARTAMENTO = "/perfiles/perfil_admin/departamento/index";
+	public final static String DEPARTAMENTO_NUEVO = "/perfiles/perfil_admin/departamento/crearDepartamento";
+	public final static String DEPARTAMENTO_AGREGAR = "/perfiles/perfil_admin/departamento/agregarDepartamento";
+	public final static String DEPARTAMENTO_EDITAR = "/perfiles/perfil_admin/departamento/editarDepartamento";
+	public final static String DEPARTAMENTO_EDIT = "/perfiles/perfil_admin/departamento/edit";
+	public final static String DEPARTAMENTO_ELIMINAR = "/perfiles/perfil_admin/departamento/eliminarDepartamento";
 }
