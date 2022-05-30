@@ -112,7 +112,14 @@ public class EdificioController {
 		redirectAttributes.addFlashAttribute("edificio_borrado", true);
 		return new RedirectView(ViewRouteHelper.EDIFICIO_REDIRECT);
 	}
-	
+	@GetMapping("/con/aulas/{id}")
+	public ModelAndView verEdifciosConAulas(@PathVariable("id") int id) {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.EDIFICIO_CON_AULAS);
+		mAV.addObject("ediAulas", edificioService.traerEdificioConAulas(id)); 
+		//mAV.addObject("lstTradicionales", aulaService.getAllTradicionalID(id));
+		//mAV.addObject("lstLaboratorios", aulaService.getAllLaboratorioID(id));
+		return mAV;
+	}
 	
 	
 

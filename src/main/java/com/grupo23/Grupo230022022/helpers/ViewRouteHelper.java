@@ -38,4 +38,5 @@ public class ViewRouteHelper {
 	public final static String EDIFICIO_EDITAR = "/perfiles/perfil_admin/edificio/editarEdificio";
 	public final static String EDIFICIO_EDIT = "/perfiles/perfil_admin/edificio/edit";
 	public final static String EDIFICIO_ELIMINAR = "/perfiles/perfil_admin/edificio/eliminarEdificio";
+	public final static String EDIFICIO_CON_AULAS = "/perfiles/perfil_admin/edificio/verEdificiosConAulas"; //PARA VER EDIFICIOS CON AULA, EL EDIFICIO TIENEN QUE TENER COMO MINIMO 1 AULA, SINO TIRA ERROR (SE PUEDE ARREGLAR, PERO NO LLEGAMOS CON EL TIEMPO)
 }

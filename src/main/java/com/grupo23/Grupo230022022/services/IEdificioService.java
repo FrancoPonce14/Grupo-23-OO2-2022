@@ -10,4 +10,5 @@ public interface IEdificioService {
 	public boolean insertOrUpdate(Edificio edificio);
 	public Edificio findById(int id);
 	public boolean remove(int id);
+	public Edificio traerEdificioConAulas(int idEdificio);
 }

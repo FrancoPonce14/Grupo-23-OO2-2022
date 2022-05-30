@@ -46,4 +46,8 @@ public class EdificioService implements IEdificioService{
 			return false;
 		}
 	}
+	@Override
+	public Edificio traerEdificioConAulas(int idEdificio) {
+		return edificioRepository.traerEdificioConAulas(idEdificio);
+	}
 }
