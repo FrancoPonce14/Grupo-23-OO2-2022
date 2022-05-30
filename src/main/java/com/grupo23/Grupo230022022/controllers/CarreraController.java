@@ -30,6 +30,13 @@ public class CarreraController {
 	@Qualifier("departamentoService")
 	private IDepartamentoService departamentoService;
 	
+	@GetMapping("/index") 
+	public ModelAndView index_auditor() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_INDEX_CARRERA);
+		mAV.addObject("lstCarreras", carreraService.getAll());
+		return mAV;
+	}
+	
 	@GetMapping("/admin/index") 
 	public ModelAndView index() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.INDEX_CARRERA);

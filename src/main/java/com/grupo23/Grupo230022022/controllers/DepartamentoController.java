@@ -25,6 +25,13 @@ public class DepartamentoController {
 	@Qualifier("departamentoService")
 	private IDepartamentoService departamentoService;
 	
+	@GetMapping("/index")
+	public ModelAndView index_auditor() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_INDEX_DEPARTAMENTO);
+		mAV.addObject("lstDepartamentos", departamentoService.getAll());
+		return mAV;
+	}
+	
 	@GetMapping("/admin/index")
 	public ModelAndView index() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.INDEX_DEPARTAMENTO);

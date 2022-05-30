@@ -29,6 +29,13 @@ public class MateriaController {
 	@Qualifier("carreraService")
 	private ICarreraService carreraService;
 	
+	@GetMapping("/index") 
+	public ModelAndView index_auditor() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_INDEX_MATERIA);
+		mAV.addObject("lstMaterias", materiaService.getAll());
+		return mAV;
+	}
+	
 	@GetMapping("/admin/index") 
 	public ModelAndView index() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.INDEX_MATERIA);
