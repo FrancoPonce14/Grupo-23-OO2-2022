@@ -2,7 +2,6 @@ package com.grupo23.Grupo230022022.helpers;
 
 public class ViewRouteHelper {
 
-	//dashboard
 	public final static String DASHBOARD = "/home/dashboard";
 	// INICIO/CIERRE SESIÓN + INDEXS ADMIN - AUDITOR
 	public final static String LOGIN = "/session/login";
