@@ -81,4 +81,16 @@ public class ViewRouteHelper {
 	public final static String MATERIA_EDITAR = "/perfiles/perfil_admin/materia/editarMateria";
 	public final static String MATERIA_EDIT = "/perfiles/perfil_admin/materia/edit";
 	public final static String MATERIA_ELIMINAR = "/perfiles/perfil_admin/materia/eliminarMateria";
+	//NOTA PEDIDO
+	public final static String NOTAPEDIDO_REDIRECT = "/notaPedido/admin/index";
+	public final static String INDEX_NOTAPEDIDO = "/perfiles/perfil_admin/notaPedido/index";
+	public final static String NOTAPEDIDO_SELECT = "/perfiles/perfil_admin/notaPedido/select";
+	public final static String NOTAPEDIDO_NUEVO_C = "/perfiles/perfil_admin/notaPedido/crearCurso";
+	public final static String NOTAPEDIDO_NUEVO_F = "/perfiles/perfil_admin/notaPedido/crearFinal";
+	public final static String NOTAPEDIDO_EDITAR = "/perfiles/perfil_admin/notaPedido/editarNotaPedido";
+	public final static String NOTAPEDIDO_EDITAR_C = "/perfiles/perfil_admin/notaPedido/editarCurso";
+	public final static String NOTAPEDIDO_EDITAR_F = "/perfiles/perfil_admin/notaPedido/editarFinal";
+	public final static String NOTAPEDIDO_ELIMINAR = "/perfiles/perfil_admin/notaPedido/eliminarNotaPedido";
+	public final static String NOTAPEDIDO_VER_CURSO = "/perfiles/perfil_admin/notaPedido/verCurso";
+	public final static String NOTAPEDIDO_VER_FINAL = "/perfiles/perfil_admin/notaPedido/verFinal";
 }
