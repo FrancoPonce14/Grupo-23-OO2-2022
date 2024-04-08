@@ -1,7 +1,7 @@
 # Grupo-23-OO2-2022
 
 ---
-### Administrador
+### Admin
 ```
 usuario: admin
 contraseña: admin123
